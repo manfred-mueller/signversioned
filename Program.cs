@@ -43,7 +43,13 @@ namespace signversioned
                 Console.WriteLine(Properties.Resources.ErrorSigntoolExeNotFoundInPath);
                 return;
             }
-            
+
+            if (string.IsNullOrEmpty(Properties.Settings.Default.SignedBy) || string.IsNullOrEmpty(Properties.Settings.Default.TimeServer))
+            {
+                Console.WriteLine(Properties.Resources.ErrorIssuerAndOrTimeServerSettingsNotFound);
+                return;
+            }
+
             if (args.Length != 1)
             {
                 Console.WriteLine(Properties.Resources.UsageSignversionedExeTarget);
@@ -68,39 +74,53 @@ namespace signversioned
                 Properties.Settings.Default.Save();
                 return;
             }
+
             string path = args[0];
             string vPath = path;
-            if (vPath.EndsWith(".exe"))
-            {
-                string vString = (FileVersionInfo.GetVersionInfo(vPath)).ProductVersion;
-                vString.Replace(", ", ".");
-                string vEnding = "-" + vString + ".exe";
-                vPath = path.Replace(".exe", vEnding);                
-            }
-            else if (vPath.EndsWith(".msi"))
-            {
-                string vEnding = "-" + MsiProperties.Get(path, "ProductVersion") + ".msi";
-                vPath = path.Replace(".msi", vEnding);
-            }
-
-            try
-            {
-                File.Move(path, vPath);
-            }
-            catch
-            {
-                Console.WriteLine(Properties.Resources.ErrorMoving0To1Failed, path, vPath);
-            }
-
             string signString = "sign";
+
             signString += " /n " + Properties.Settings.Default.SignedBy;
             signString += " /t " + Properties.Settings.Default.TimeServer;
             signString += " " + Properties.Settings.Default.AdditionalParams;
-            signString += " " + vPath;
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = "signtool";
-            startInfo.Arguments = signString;
-            Process.Start(startInfo);
+            signString += " " + args[0];
+            Process signProc = new Process();
+            ProcessStartInfo signProcStartInfo = new ProcessStartInfo();
+            signProcStartInfo.FileName = "signtool";
+            signProcStartInfo.Arguments = signString;
+            signProcStartInfo.UseShellExecute = false;
+            signProcStartInfo.RedirectStandardError = true;
+            signProc.StartInfo = signProcStartInfo;
+            signProc.Start();
+            signProc.WaitForExit();
+
+            if (signProc.ExitCode == 0)
+            {
+                if (vPath.EndsWith(".exe"))
+                {
+                    string vString = (FileVersionInfo.GetVersionInfo(vPath)).ProductVersion;
+                    vString.Replace(", ", ".");
+                    string vEnding = "-" + vString + ".exe";
+                    vPath = path.Replace(".exe", vEnding);
+                }
+                else if (vPath.EndsWith(".msi"))
+                {
+                    string vEnding = "-" + MsiProperties.Get(path, "ProductVersion") + ".msi";
+                    vPath = path.Replace(".msi", vEnding);
+                }
+
+                try
+                {
+                    File.Move(path, vPath);
+                }
+                catch
+                {
+                    Console.WriteLine(Properties.Resources.ErrorMoving0To1Failed, path, vPath);
+                }
+            }
+            else
+            {
+                Console.WriteLine(Properties.Resources.ErrorSigning0Failed, path);
+            }
         }
     }
 }

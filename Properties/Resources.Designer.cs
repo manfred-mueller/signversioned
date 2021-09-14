@@ -59,83 +59,99 @@ namespace signversioned.Properties {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Usage: signversion.exe <target> ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///Error: file {0} not found! ähnelt.
         /// </summary>
-        internal static string UsageSignversionedExeTarget
-        {
-            get
-            {
-                return ResourceManager.GetString("UsageSignversionedExeTarget", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Error: {0} not found! ähnelt.
-        /// </summary>
-        internal static string Error0NotFound
-        {
-            get
-            {
+        internal static string Error0NotFound {
+            get {
                 return ResourceManager.GetString("Error0NotFound", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Error: signtool.exe not found in path ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///Error: Signer and/or time server settings not found!
+        ///       Please call &apos;signversioned.exe params&apos; once. ähnelt.
         /// </summary>
-        internal static string ErrorSigntoolExeNotFoundInPath
-        {
-            get
-            {
-                return ResourceManager.GetString("ErrorSigntoolExeNotFoundInPath", resourceCulture);
+        internal static string ErrorIssuerAndOrTimeServerSettingsNotFound {
+            get {
+                return ResourceManager.GetString("ErrorIssuerAndOrTimeServerSettingsNotFound", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die \nPlease key in additional parameters (enter for none):\n ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///Error: Moving {0} to {1} failed! ähnelt.
         /// </summary>
-        internal static string NPleaseKeyInAdditionalParametersEnterForNoneN
-        {
-            get
-            {
-                return ResourceManager.GetString("NPleaseKeyInAdditionalParametersEnterForNoneN", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die \nPlease key the time server:\n ähnelt.
-        /// </summary>
-        internal static string NPleaseKeyInTheTimeServerN
-        {
-            get
-            {
-                return ResourceManager.GetString("NPleaseKeyInTheTimeServerN", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die \nPlease key the signer's name:\n ähnelt.
-        /// </summary>
-        internal static string PleaseKeyInTheSignerSNameN
-        {
-            get
-            {
-                return ResourceManager.GetString("PleaseKeyInTheSignerSNameN", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Error: Moving {0} to {1} failed! ähnelt.
-        /// </summary>
-        internal static string ErrorMoving0To1Failed
-        {
-            get
-            {
+        internal static string ErrorMoving0To1Failed {
+            get {
                 return ResourceManager.GetString("ErrorMoving0To1Failed", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///Error: Signing {0} failed! ähnelt.
+        /// </summary>
+        internal static string ErrorSigning0Failed {
+            get {
+                return ResourceManager.GetString("ErrorSigning0Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///Error: file signtool.exe not found in path! ähnelt.
+        /// </summary>
+        internal static string ErrorSigntoolExeNotFoundInPath {
+            get {
+                return ResourceManager.GetString("ErrorSigntoolExeNotFoundInPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///Please key in additional parameters (enter for none):
+        /// ähnelt.
+        /// </summary>
+        internal static string NPleaseKeyInAdditionalParametersEnterForNoneN {
+            get {
+                return ResourceManager.GetString("NPleaseKeyInAdditionalParametersEnterForNoneN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///Please key in the time server:
+        /// ähnelt.
+        /// </summary>
+        internal static string NPleaseKeyInTheTimeServerN {
+            get {
+                return ResourceManager.GetString("NPleaseKeyInTheTimeServerN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Please key in the signer&apos;s name:
+        /// ähnelt.
+        /// </summary>
+        internal static string PleaseKeyInTheSignerSNameN {
+            get {
+                return ResourceManager.GetString("PleaseKeyInTheSignerSNameN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///Usage: signversioned.exe &lt;target&gt;
+        ///       signversioned.exe &apos;params&apos; (to set signtool.exe parameters) ähnelt.
+        /// </summary>
+        internal static string UsageSignversionedExeTarget {
+            get {
+                return ResourceManager.GetString("UsageSignversionedExeTarget", resourceCulture);
+            }
+        }
     }
 }

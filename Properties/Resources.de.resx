@@ -118,7 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ErrorMoving0To1Failed" xml:space="preserve">
-    <value>Fehler: Verschieben von {0} nach {1} gescheitert!</value>
+    <value>
+Fehler: Verschieben von {0} nach {1} gescheitert!</value>
   </data>
   <data name="UsageSignversionedExeTarget" xml:space="preserve">
     <value>
@@ -126,10 +127,12 @@ Aufruf: signversioned.exe &lt;Zieldatei&gt;
         signversioned.exe 'params' (zum Setzen der Parameter für signtool.exe)</value>
   </data>
   <data name="Error0NotFound" xml:space="preserve">
-    <value>Fehler: Datei {0} nicht gefunden!</value>
+    <value>
+Fehler: Datei {0} nicht gefunden!</value>
   </data>
   <data name="ErrorSigntoolExeNotFoundInPath" xml:space="preserve">
-    <value>Fehler: Datei signtool.exe nicht im Pfad gefunden!</value>
+    <value>
+Fehler: Datei signtool.exe nicht im Pfad gefunden!</value>
   </data>
   <data name="NPleaseKeyInAdditionalParametersEnterForNoneN" xml:space="preserve">
     <value>
@@ -144,5 +147,14 @@ Bitte den Zeitserver eingeben:
   <data name="PleaseKeyInTheSignerSNameN" xml:space="preserve">
     <value>Bitte den Signaturgeber eingeben:
 </value>
+  </data>
+  <data name="ErrorSigning0Failed" xml:space="preserve">
+    <value>
+Fehler: Signieren von {0} gescheitert!</value>
+  </data>
+  <data name="ErrorIssuerAndOrTimeServerSettingsNotFound" xml:space="preserve">
+    <value>
+Fehler: Einstellungen für Signaturgeber und/oder Zeitserver nicht gefunden!
+        Bitte rufen Sie einmalig 'signversioned.exe params' auf.</value>
   </data>
 </root>
