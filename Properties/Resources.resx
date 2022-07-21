@@ -157,4 +157,7 @@ Error: Signing {0} failed!</value>
 Error: Signer and/or time server settings not found!
        Please call 'signversioned.exe params' once.</value>
   </data>
+  <data name="Moving0To1Successful" xml:space="preserve">
+    <value>Moving {0} to {1} successful!</value>
+  </data>
 </root>

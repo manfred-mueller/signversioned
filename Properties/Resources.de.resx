@@ -157,4 +157,7 @@ Fehler: Signieren von {0} gescheitert!</value>
 Fehler: Einstellungen für Signaturgeber und/oder Zeitserver nicht gefunden!
         Bitte rufen Sie einmalig 'signversioned.exe params' auf.</value>
   </data>
+  <data name="Moving0To1Successful" xml:space="preserve">
+    <value>Verschieben von {0} nach {1} erfolgreich!</value>
+  </data>
 </root>

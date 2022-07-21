@@ -79,8 +79,8 @@ namespace signversioned
             string vPath = path;
             string signString = "sign";
 
-            signString += " /n " + Encryption.Decrypt(Properties.Settings.Default.SignedBy);
-            signString += " /t " + Encryption.Decrypt(Properties.Settings.Default.TimeServer);
+            signString += " /n \"" + Encryption.Decrypt(Properties.Settings.Default.SignedBy) + "\"";
+            signString += " /t \"" + Encryption.Decrypt(Properties.Settings.Default.TimeServer) + "\"";
             signString += " " + Encryption.Decrypt(Properties.Settings.Default.AdditionalParams);
             signString += " " + args[0];
             Process signProc = new Process();
@@ -92,7 +92,6 @@ namespace signversioned
             signProc.StartInfo = signProcStartInfo;
             signProc.Start();
             signProc.WaitForExit();
-
             if (signProc.ExitCode == 0)
             {
                 if (vPath.EndsWith(".exe"))
@@ -111,6 +110,7 @@ namespace signversioned
                 try
                 {
                     File.Move(path, vPath);
+                    Console.WriteLine(Properties.Resources.Moving0To1Successful, path, vPath);
                 }
                 catch
                 {
